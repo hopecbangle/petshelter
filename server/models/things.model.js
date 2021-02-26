@@ -39,6 +39,9 @@ birthDate: {
     max: ['2003-01-01', "You must be at least 18 years of age"],
     //max: [new Date(), "You cannot be over 100 years old"],
 },
+pictureUrl: {
+    type: String
+}
 //Address: String
 
 //Today's Date: Date
