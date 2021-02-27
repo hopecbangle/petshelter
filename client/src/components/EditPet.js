@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link, navigate} from '@reach/router';
 
-const EditThing = (props) => {
+const EditPet = (props) => {
     return (
        <div>
-           <h2>Edit Thing</h2>
+           <h2>Edit Pet</h2>
        </div> 
     )
 }
 
-export default EditThing;
+export default EditPet;

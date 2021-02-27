@@ -1,9 +1,9 @@
 import react from 'react';
 import {Router} from '@reach/router';
-import AllThings from './components/AllThings';
-import EditThing from './components/EditThing';
-import NewThing from './components/NewThing';
-import OneThing from './components/OneThing';
+import AllPets from './components/AllPets';
+import EditPet from './components/EditPet';
+import NewPet from './components/NewPet';
+import OnePet from './components/OnePet';
 import './App.css';
 
 function App() {
@@ -15,10 +15,10 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AllThings path="/things" />
-        <EditThing path="/things/:id/edit" />
-        <NewThing path="/things/new" />
-        <OneThing path="/things/:id" />
+        <AllPets path="/pets" />
+        <EditPet path="/pets/:id/edit" />
+        <NewPet path="/pets/new" />
+        <OnePet path="/pets/:id" />
         <NotFound default />
       </Router>
 

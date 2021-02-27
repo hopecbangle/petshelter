@@ -1,11 +1,11 @@
-const ThingsModel = require('../models/things.model');
+const PetsModel = require('../models/pets.model');
 
 module.exports = {
     getAll: (req, res) => {
-        ThingsModel.find()
-            .then((allThings) => {
-                console.log(allThings);
-                res.json(allThings);
+        PetsModel.find()
+            .then((allPets) => {
+                console.log(allPets);
+                res.json(allPets);
             })
             .catch ((err) => {
                 console.log("error in getAll: " + err);
@@ -15,10 +15,10 @@ module.exports = {
     
     create: (req, res) => {
         console.log(req.body);
-        ThingsModel.create(req.body)
-            .then((newThing) => {
-                console.log(newThing);
-                res.json(newThing);
+        PetsModel.create(req.body)
+            .then((newPet) => {
+                console.log(newPet);
+                res.json(newPet);
             })
             .catch ((err) => {
                 console.log("error in create: " + err);
@@ -28,10 +28,10 @@ module.exports = {
 
     getOne: (req, res) => {
         console.log(req.params.id);
-        ThingsModel.findById(req.params.id)
-            .then((oneThing) => {
-                console.log(oneThing);
-                res.json(oneThing);
+        PetsModel.findById(req.params.id)
+            .then((onePet) => {
+                console.log(onePet);
+                res.json(onePet);
             })
             .catch ((err) => {
                 console.log("error in getOne: " + err);
@@ -42,13 +42,13 @@ module.exports = {
     update: (req, res) => {
         console.log(req.params.id);
         console.log(req.body);
-        ThingsModel.findByIdAndUpdate(req.params.id, req.body, {
+        PetsModel.findByIdAndUpdate(req.params.id, req.body, {
             new: true,
             runValidators: true,
         })
-        .then((updatedThing) => {
-            console.log(updatedThing);
-            res.json(updatedThing);
+        .then((updatedPet) => {
+            console.log(updatedPet);
+            res.json(updatedPet);
         })
         .catch( (err) => {
             console.log ("error in update: " + err);
@@ -58,10 +58,10 @@ module.exports = {
 
     delete: (req, res) => {
         console.log(req.params.id);
-        ThingsModel.findByIdAndRemove(req.params.id)
-            .then((removedThing) => {
-                console.log(removedThing);
-                res.json(removedThing);
+        PetsModel.findByIdAndRemove(req.params.id)
+            .then((removedPet) => {
+                console.log(removedPet);
+                res.json(removedPet);
             })
             .catch((err) => {
                 console.log("error in delete: " + err);

@@ -9,6 +9,6 @@ app.use(cors());
 
 require('./config/mongoose.config');
 
-require('./routes/things.route')(app);
+require('./routes/pets.route')(app);
 
 app.listen(port, () => console.log(`Listening on port: ${port}`));

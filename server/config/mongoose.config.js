@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const db_name = "things";
+const db_name = "shelter";
 
 mongoose.connect("mongodb://localhost/" + db_name, {
     useNewUrlParser: true,
