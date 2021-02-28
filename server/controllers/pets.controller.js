@@ -3,6 +3,7 @@ const PetsModel = require('../models/pets.model');
 module.exports = {
     getAll: (req, res) => {
         PetsModel.find()
+            .sort({petType: "ascending"})
             .then((allPets) => {
                 console.log(allPets);
                 res.json(allPets);

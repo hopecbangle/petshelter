@@ -53,7 +53,9 @@ button {
   color: white;
   background-color: blue;
 }
-
+.error-text {
+  color: red;
+}
 .deleteBtn {
   color: black;
   background-color: red;

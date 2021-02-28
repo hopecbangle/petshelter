@@ -3,20 +3,30 @@ const PetsSchema = new mongoose.Schema({
 
 petName: {
     type: String,
-    required: [true, "Your pet must have a name"],
-    minlength: [3, "The name of your pet must be at least 3 characters"],
+    unique: [true, "There is already a pet listed with that name"],
+    required: [true, " Your pet must have a name"],
+    minlength: [3, " The name of your pet must be at least 3 characters"],
 },
 petType: {
     type: String,
-    required: [true, "You must specify the type of pet"],
-    minlength: [3, "The type of pet must be at least 3 characters"],
+    required: [true, " You must specify the type of pet"],
+    minlength: [3, " The type of pet must be at least 3 characters"],
 },    
 petDesc: {
     type: String,
-    required: [true, "You must describe your pet"],
-    minlength: [3, "Your description must be at least 3 characters"],
+    required: [true, " You must describe your pet"],
+    minlength: [3, " Your description must be at least 3 characters"],
 },
-noSkill: {
+petSkill1: {
+    type: String,
+},
+petSkill2: {
+    type: String,
+},
+petSkill3: {
+}
+
+/*noSkill: {
     type: Boolean,
     default: false,
 },
