@@ -3,7 +3,7 @@ const PetsSchema = new mongoose.Schema({
 
 petName: {
     type: String,
-    unique: [true, "There is already a pet listed with that name"],
+    unique: true, 
     required: [true, " Your pet must have a name"],
     minlength: [3, " The name of your pet must be at least 3 characters"],
 },
