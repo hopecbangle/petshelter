@@ -1,4 +1,3 @@
-import react from 'react';
 import {Router} from '@reach/router';
 import AllPets from './components/AllPets';
 import EditPet from './components/EditPet';

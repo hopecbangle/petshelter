@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { Link, navigate} from '@reach/router';
+import { Link } from '@reach/router';
 
-const AllPets = (props) => {
+const AllPets = () => {
     const [allPets, setAllPets] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:8000/api/pets/")
@@ -13,27 +13,34 @@ const AllPets = (props) => {
         .catch (err => console.log (err));
     }, []);
 
-    const adoptPet = (id) => {
-        axios.delete("http://localhost:8000/api/pets/" + id)
-            .then((res) => {
-                console.log(res.data);
-                const filteredPetsArray = allPets.filter((pets) => pets._id !==id);
-                setAllPets(filteredPetsArray);
-            })
-            .catch (err => console.log (err));
-    }
     return (
         <div>
-            <h2>All Pets</h2>
-            <button onClick={() => navigate('/pets/new')}>Create a new pet for adoption</button>
+            <h1>Pet Shelter</h1>
+            <div className="linkClass">
+                <Link to = {('/pets/new')}>add a pet to the shelter</Link>
+            </div>
+            <h2>These pets are looking for a good home</h2>
+            <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+            </table>
             {
                 allPets.map((pets, index) => (
                     <div key={ index }>
-                            <hr />
-                            <h4>{`${pets.petName}'s Picture`}</h4>
-                            <button onClick={() => navigate(`/pets/${pets._id}`)}>View {`${pets.petName}'s Details`}</button>
-                            <button onClick= {() => adoptPet(pets._id)}>Adopt Pet</button>
-                            <button onClick={() => navigate(`/pets/${pets._id}/edit`)}>Update Pet</button>
+                        <table>    
+                            <tr>
+                                <td>{pets.petName}</td>
+                                <td>{pets.petType}</td>
+                                <td>
+                                    <Link to = {(`/pets/${pets._id}`)}> details </Link>
+                                        <span>|</span>
+                                    <Link to = {(`/pets/${pets._id}/edit`)}> edit </Link>
+                                </td>
+                            </tr>
+                        </table>
                     </div>
                 ))
             }

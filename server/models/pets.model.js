@@ -5,17 +5,17 @@ petName: {
     type: String,
     unique: true, 
     required: [true, " Your pet must have a name"],
-    minlength: [3, " The name of your pet must be at least 3 characters"],
+    minlength: [3, " Your pet's name must be at least 3 characters"],
 },
 petType: {
     type: String,
     required: [true, " You must specify the type of pet"],
-    minlength: [3, " The type of pet must be at least 3 characters"],
+    minlength: [3, " Your pet's type must be at least 3 characters"],
 },    
 petDesc: {
     type: String,
     required: [true, " You must describe your pet"],
-    minlength: [3, " Your description must be at least 3 characters"],
+    minlength: [3, " The description must be at least 3 characters"],
 },
 petSkill1: {
     type: String,

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import { Link, navigate} from '@reach/router';
 
 
-const NewPet = (props) => {
+const NewPet = () => {
     const [petName, setpetName] = useState("");
     const [petType, setpetType] = useState("");
     const [petDesc, setpetDesc] = useState("");
@@ -27,7 +27,7 @@ const NewPet = (props) => {
                 setErrs(response.data.errors);
             } else {
             console.log(response.data);
-            navigate(`/pets/${response.data._id}`);
+            navigate('/pets/');
             }
         })
         .catch((err) => 
@@ -36,70 +36,78 @@ const NewPet = (props) => {
     }
     return (
         <div>
-            <h2>Edit Pet</h2>
+            <h1>Pet Shelter</h1>
+            <div className="linkClass">
+                <Link to = {('/pets/')}>back to home</Link>
+            </div>
+            <h2>Know a pet needing a home?</h2>
             <form onSubmit={submitForm}>
-                <div>
-                    <label>Pet Name:</label>
-                    {
-                        errs.petName ?
-                        <span className="error-test">{errs.petName.message}</span>
-                        :null
-                    }
-                    <input
-                        type="text"
-                        name="petName"
-                        value={petName}
-                        onChange={(e) => setpetName(e.target.value)}
-                    />
-                    <label>Pet Type:</label>
-                    {
-                        errs.petType ?
-                        <span className="error-test">{errs.petType.message}</span>
-                        :null
-                    }
-                    <input
-                        type="text"
-                        name="petType"
-                        value={petType}
-                        onChange={(e) => setpetType(e.target.value)}
-                    />
-                    <label>Description of pet:</label>
-                    {
-                        errs.petDesc ?
-                        <span className="error-test">{errs.petDesc.message}</span>
-                        :null
-                    }
-                    <input
-                        type="text"
-                        name="petDesc"
-                        value={petDesc}
-                        onChange={(e) => setpetDesc(e.target.value)}
-                    />
-                    <h3>List your pet's skills:</h3>
-                    <label>Skill 1:</label>
-                    <input
-                        type="text"
-                        name="petSkill1"
-                        value={petSkill1}
-                        onChange={(e) => setpetSkill1(e.target.value)}
-                    />
-                    <label>Skill 2:</label>
-                    <input
-                        type="text"
-                        name="petSkill2"
-                        value={petSkill2}
-                        onChange={(e) => setpetSkill2(e.target.value)}
-                    />
-                    <label>Skill 3:</label>
-                    <input
-                        type="text"
-                        name="petSkill3"
-                        value={petSkill3}
-                        onChange={(e) => setpetSkill3(e.target.value)}
-                    />
-                </div>
-                <button type="submit">Add this pet</button>
-                <button onClick={() => navigate('/pets')}>Back</button>
+                
+                    <div className="inputAlign">
+                        <label>Pet Name:</label><br></br>
+                        {
+                            errs.petName ?
+                            <span className="error-text">{errs.petName.message}</span>
+                            :null
+                        }
+                        <input
+                            type="text"
+                            name="petName"
+                            value={petName}
+                            onChange={(e) => setpetName(e.target.value)}
+                        /><br></br>
+                        <label>Pet Type:</label><br></br>
+                        {
+                            errs.petType ?
+                            <span className="error-text">{errs.petType.message}</span>
+                            :null
+                        }
+                        <input
+                            type="text"
+                            name="petType"
+                            value={petType}
+                            onChange={(e) => setpetType(e.target.value)}
+                        /><br></br>
+                        <label>Description of pet:</label><br></br>
+                        {
+                            errs.petDesc ?
+                            <span className="error-text">{errs.petDesc.message}</span>
+                            :null
+                        }
+                        <input
+                            type="text"
+                            name="petDesc"
+                            value={petDesc}
+                            onChange={(e) => setpetDesc(e.target.value)}
+                        /><br></br>
+                        <button className="otherButtons" type="submit">Add this pet</button>
+                    </div>
+                    <div className="inputAlign">
+                        <p>List your pet's skills:</p>
+                        <label>Skill 1:</label><br></br>
+                        <input
+                            type="text"
+                            name="petSkill1"
+                            value={petSkill1}
+                            onChange={(e) => setpetSkill1(e.target.value)}
+                        /><br></br>
+                        <label>Skill 2:</label><br></br>
+                        <input
+                            type="text"
+                            name="petSkill2"
+                            value={petSkill2}
+                            onChange={(e) => setpetSkill2(e.target.value)}
+                        /><br></br>
+                        <label>Skill 3:</label><br></br>
+                        <input
+                            type="text"
+                            name="petSkill3"
+                            value={petSkill3}
+                            onChange={(e) => setpetSkill3(e.target.value)}
+                        /><br></br>
+                    </div>    
+                
+                
             </form>
         </div> 
     )
