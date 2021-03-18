@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { Link, navigate} from '@reach/router';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
 
 const EditPet = (props) => {
     const { id } = props;
@@ -95,7 +97,7 @@ const EditPet = (props) => {
                             value={petDesc}
                             onChange={(e) => setpetDesc(e.target.value)}
                         /><br></br>
-                        <button className="otherButtons" type="submit">Edit pet</button>
+                        <Button type="submit">Edit pet</Button>
                         </div>
                         <div className="inputAlign">
                         <p>List your pet's skills:</p>
