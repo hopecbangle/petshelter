@@ -30,7 +30,8 @@ const AllPets = () => {
             {
                 allPets.map((pets, index) => (
                     <div key={ index }>
-                        <table>    
+                        <table>
+                                
                             <tr>
                                 <td>{pets.petName}</td>
                                 <td>{pets.petType}</td>
